@@ -1,8 +1,8 @@
 # dalec-openproject
 
-Django Aggregate a Lot of External Content -- CalDav
+Django Aggregate a Lot of External Content -- OpenProject
 
-Aggregate last event from a given CalDav instance.
+Aggregate last event from a given OpenProject instance.
 
 Plugin of [dalec](https://dev.webu.coop/w/i/dalec).
 
@@ -48,8 +48,6 @@ Retrieves latest events:
 
 Django settings must define:
 
-  - `DALEC_CALDAV_BASE_URL` : CalDav instance url (ex: `https://openproject.org/`)
-  - `DALEC_CALDAV_API_USERNAME` : CalDav username (ex: `admin`)
-  - `DALEC_CALDAV_API_PASSWORD` : CalDav user password (ex: `azeazeaezdfqsmlkrjzr`)
-
+  - `DALEC_OPENPROJECT_BASE_URL` : OpenProject instance url (ex: `https://openproject.org/`)
+  - `DALEC_OPENPROJECT_API_KEY` : OpenProject api key (ex: `admazerazerazerazerazer`)
 
