@@ -1,27 +1,28 @@
 {% extends "dalec/default/item.html" %}
 {% block item_content %}
-<div>
-    <h3 class="openproject-work_package-subject">{{object.content_data.subject}}</h3>
-    Projet : {{object.content_data.project.name}}
-    (<a href="{{object.content_data.project.project_url}}" target="_blank">
-    {{object.content_data.project.identifier}})
-    </a>
-    <br>
-    <a href="{{object.content_data.work_package_url}}" target="_blank">
-        {{object.content_data.id}}
-    </a>
-</div>
-
-
-<div>
-    <button id="btnFadetoggle"
-            class="btn btn-primary"
-            type="button"
-            onclick="$('.api-full').fadeToggle();"
-            >
-            Voir tout le retour de l'API
-    </button>
-    <pre class="api-full" style="display: none;"> {{ object.content_data|pprint }} </pre>
-</div>
-<hr>
+<tr>
+    <td class="openproject work_package subject">{{object.content_data.subject}}</td>
+    <td class="openproject work_package project">
+        <a href="{{object.content_data.project.project_url}}" target="_blank">
+        {{object.content_data.project.name}}
+        </a>
+    </td>
+    <td class="openproject work_package assignee">{{object.content_data.assignee}}</td>
+    <td class="openproject work_package due_date">
+        {{object.content_data.dueDate}}
+    </td>
+    <td class="openproject work_package action">
+        <a href="{{object.content_data.work_package_url}}" target="_blank">
+            {{object.content_data.id}}
+        </a>
+        <button id="btnFadetoggle"
+                class="btn btn-primary"
+                type="button"
+                onclick="$('.api-full').fadeToggle();"
+                >
+                Voir tout le retour de l'API
+        </button>
+        <pre class="api-full" style="display: none;"> {{ object.content_data|pprint }} </pre>
+    </td>
+</tr>
 {% endblock %}
