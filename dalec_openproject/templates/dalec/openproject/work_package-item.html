@@ -1,8 +1,15 @@
 {% extends "dalec/default/item.html" %}
 {% block item_content %}
 <div>
-    {{object.content_data.id}}
-    
+    <h3 class="openproject-work_package-subject">{{object.content_data.subject}}</h3>
+    Projet : {{object.content_data.project.name}}
+    (<a href="{{object.content_data.project.project_url}}" target="_blank">
+    {{object.content_data.project.identifier}})
+    </a>
+    <br>
+    <a href="{{object.content_data.work_package_url}}" target="_blank">
+        {{object.content_data.id}}
+    </a>
 </div>
 
 

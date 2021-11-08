@@ -2,7 +2,7 @@
 
 Django Aggregate a Lot of External Content -- OpenProject
 
-Aggregate last event from a given OpenProject instance.
+Aggregate last work packages from a given OpenProject instance.
 
 Plugin of [dalec](https://dev.webu.coop/w/i/dalec).
 
@@ -36,11 +36,12 @@ General usage:
 
 Real examples:
 
-### Events
+### Work packages
 
-Retrieves latest events:
+Retrieves latest work packages of a project defined by its identifier (i.e. slug):
+
 ```django
-{% dalec "openproject" "event" %}
+{% dalec "openproject" "work_package" channel="project" channel_object="project-identifier"%}
 ```
 
 
