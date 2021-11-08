@@ -1,4 +1,4 @@
-from datetime import datetime, timedelta
+from datetime import timedelta
 from typing import Dict
 import requests
 
@@ -80,7 +80,6 @@ class OpenprojectProxy(Proxy):
             content = {
                 attr: getattr(wp, attr) for attr in dir(wp) if not attr.startswith("_")
             }
-            content["dueDate"] = datetime.strptime(content["dueDate"], "%Y-%m-%d")
             content.update(
                 {
                     "work_package_url": f"{settings.DALEC_OPENPROJECT_BASE_URL}/work_packages/{wp.id}",
