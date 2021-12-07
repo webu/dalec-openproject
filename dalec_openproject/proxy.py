@@ -95,13 +95,14 @@ class OpenprojectProxy(Proxy):
             )
 
             # dalec needed attribues
+            wp.id = str(wp.id)
             content.update(
                 {
-                    "id": str(wp.id),
+                    "id": wp.id,
                     "creation_dt": wp.createdAt,
                     "last_update_dt": now(),
                 }
             )
 
-            contents[str(wp.id)] = content
+            contents[wp.id] = content
         return contents
