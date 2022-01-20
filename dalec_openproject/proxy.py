@@ -39,9 +39,7 @@ class OpenprojectProxy(Proxy):
         """
         Get latest work packages
         """
-        options = {
-            "per_page": nb,
-        }
+        options = {"per_page": nb}
 
         if channel != "project":
             raise ValueError(
@@ -83,25 +81,17 @@ class OpenprojectProxy(Proxy):
             content.update(
                 {
                     "work_package_url": f"{settings.DALEC_OPENPROJECT_BASE_URL}/work_packages/{wp.id}",
-                    "assignee": wp._links["assignee"].get("title", None)
+                    "assignee": wp._links["assignee"].get("title", None),
                 }
             )
 
             # project attributes
-            content.update(
-                {
-                    "project": project_attrs,
-                }
-            )
+            content.update({"project": project_attrs})
 
             # dalec needed attribues
             wp.id = str(wp.id)
             content.update(
-                {
-                    "id": wp.id,
-                    "creation_dt": wp.createdAt,
-                    "last_update_dt": now(),
-                }
+                {"id": wp.id, "creation_dt": wp.createdAt, "last_update_dt": now()}
             )
 
             contents[wp.id] = content
