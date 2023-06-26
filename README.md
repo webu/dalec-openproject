@@ -1,10 +1,15 @@
-# dalec-openproject
+# 🔗 dalec-openproject
+
+[![Stable Version](https://img.shields.io/pypi/v/dalec-openproject?color=blue)](https://pypi.org/project/dalec-openproject/)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![Imports: isort](https://img.shields.io/badge/%20imports-isort-%231674b1?style=flat&labelColor=ef8336)](https://pycqa.github.io/isort/)
+[![semver](https://img.shields.io/badge/semver-2.0.0-green)](https://semver.org/)
 
 Django Aggregate a Lot of External Content -- OpenProject
 
 Aggregate last work packages from a given OpenProject instance.
 
-Plugin of [dalec](https://github.com/webu/dalec).
+Plugin of [🤖 dalec](https://github.com/webu/dalec).
 
 ## Installation
 
