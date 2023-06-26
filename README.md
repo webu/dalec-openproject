@@ -4,7 +4,7 @@ Django Aggregate a Lot of External Content -- OpenProject
 
 Aggregate last work packages from a given OpenProject instance.
 
-Plugin of [dalec](https://dev.webu.coop/w/i/dalec).
+Plugin of [dalec](https://github.com/webu/dalec).
 
 ## Installation
 
