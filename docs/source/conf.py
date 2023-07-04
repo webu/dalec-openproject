@@ -6,16 +6,16 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-
 # Standard libs
 import os
 import sys
 
 sys.path.insert(0, os.path.abspath("../.."))
 
-from dalec_openproject import __version__ as dalec_version  # noqa
+# DALEC imports
+from dalec_openproject import __version__ as dalec_version
 
-project = "Dalec"
+project = "Dalec - OpenProject"
 copyright = "2023, Webu"
 author = "Webu"
 release = dalec_version
