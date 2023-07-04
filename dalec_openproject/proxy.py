@@ -1,16 +1,14 @@
-from datetime import timedelta
+# Standard libs
 from typing import Dict
-import requests
 
-from django.utils.dateparse import parse_datetime
-from django.utils.timezone import now
+# Django imports
 from django.conf import settings
+from django.utils.timezone import now
 
+# DALEC imports
 from dalec.proxy import Proxy
-
-from pyopenproject.openproject import OpenProject
-from pyopenproject.model.project import Project
 from pyopenproject.business.util.filter import Filter
+from pyopenproject.openproject import OpenProject
 
 client = OpenProject(
     url=settings.DALEC_OPENPROJECT_BASE_URL,
@@ -31,9 +29,7 @@ class OpenprojectProxy(Proxy):
         if content_type == "work_package":
             return self._fetch_work_packages(nb, channel, channel_object)
 
-        raise ValueError(
-            f"Invalid content_type {content_type}. Accepted: work_package."
-        )
+        raise ValueError(f"Invalid content_type {content_type}. Accepted: work_package.")
 
     def _fetch_work_packages(self, nb, channel=None, channel_object=None):
         """
@@ -68,16 +64,12 @@ class OpenprojectProxy(Proxy):
 
         project_attrs = project.__dict__
         project_attrs.update(
-            {
-                "project_url": f"{settings.DALEC_OPENPROJECT_BASE_URL}/projects/{project.id}"
-            }
+            {"project_url": f"{settings.DALEC_OPENPROJECT_BASE_URL}/projects/{project.id}"}
         )
 
         for wp in work_packages:
             # remove _links attribute (or similar)
-            content = {
-                attr: getattr(wp, attr) for attr in dir(wp) if not attr.startswith("_")
-            }
+            content = {attr: getattr(wp, attr) for attr in dir(wp) if not attr.startswith("_")}
             content.update(
                 {
                     "work_package_url": f"{settings.DALEC_OPENPROJECT_BASE_URL}/work_packages/{wp.id}",
@@ -90,9 +82,7 @@ class OpenprojectProxy(Proxy):
 
             # dalec needed attribues
             wp.id = str(wp.id)
-            content.update(
-                {"id": wp.id, "creation_dt": wp.createdAt, "last_update_dt": now()}
-            )
+            content.update({"id": wp.id, "creation_dt": wp.createdAt, "last_update_dt": now()})
 
             contents[wp.id] = content
         return contents
