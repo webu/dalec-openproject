@@ -14,7 +14,7 @@ Plugin of [🤖 dalec](https://github.com/webu/dalec).
 ## Installation
 
 ```
-pip install dalec_openproject
+pip install dalec-openproject
 ```
 
 In django settings `INSTALLED_APPS`, add:
